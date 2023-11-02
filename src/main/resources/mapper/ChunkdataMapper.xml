@@ -15,4 +15,8 @@
         ,file_id,n,
         data
     </sql>
+    <select id="selectByPage" resultType="com.henggao.cmlake.domain.Chunkdata">
+        SELECT *
+        FROM Chunkdata ${ew.customSqlSegment}
+    </select>
 </mapper>
