@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.henggao.cmlake.mapper.MetadataMapper">
+
+    <resultMap id="BaseResultMap" type="com.henggao.cmlake.domain.Metadata">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="filename" column="filename" jdbcType="VARCHAR"/>
+            <result property="md5" column="md5" jdbcType="VARCHAR"/>
+            <result property="chunksize" column="chunkSize" jdbcType="INTEGER"/>
+            <result property="length" column="length" jdbcType="FLOAT"/>
+            <result property="uploaddate" column="uploadDate" jdbcType="DATE"/>
+            <result property="contenttype" column="contentType" jdbcType="VARCHAR"/>
+            <result property="metadata" column="metadata" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,filename,md5,
+        chunkSize,length,uploadDate,
+        contentType,metadata
+    </sql>
+
+    <select id="selectByPage" resultType="com.henggao.cmlake.domain.Metadata">
+        SELECT *
+        FROM metadata ${ew.customSqlSegment}
+    </select>
+</mapper>
